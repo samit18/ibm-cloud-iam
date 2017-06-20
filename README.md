@@ -47,16 +47,6 @@ Welcome to Ubuntu 16.04.2 LTS (GNU/Linux 4.4.0-66-generic x86_64)
 97 packages can be updated.
 44 updates are security updates.
 
-
-
-ubuntu@ip-10-0-0-216:~$ aws s3 ls s3://a3-iam
-
-An error occurred (NoSuchBucket) when calling the ListObjects operation: The specified bucket does not exist
-
-ubuntu@ip-10-0-0-216:~$ aws s3 ls s3://a3-iam/
-
-An error occurred (NoSuchBucket) when calling the ListObjects operation: The specified bucket does not exist
-
 ubuntu@ip-10-0-0-216:~$ aws s3 ls s3://s3-iam/
                            PRE user0/
                            PRE user1/
