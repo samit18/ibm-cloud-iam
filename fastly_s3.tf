@@ -11,6 +11,6 @@ resource "aws_s3_bucket_object" "object" {
   bucket = "${aws_s3_bucket.bucket.id}"
   key    = "user${count.index}/"
 
-	# empty subfolder
+  # empty subfolder
   source = "/dev/null"
 }

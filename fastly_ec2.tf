@@ -80,10 +80,10 @@ resource "aws_key_pair" "ssh_thing" {
 
 resource "aws_instance" "tf_test" {
   count = "${var.server_count}"
-	
-	# An AMI based on ami-7ac6491a that has AWS CLI pre-installed for my debugging.
-	# can just use ami-7ac6491a and install yourself
-  ami   = "ami-b81401c1"
+
+  # An AMI based on ami-7ac6491a that has AWS CLI pre-installed for my debugging.
+  # can just use ami-7ac6491a and install yourself
+  ami = "ami-b81401c1"
 
   instance_type               = "t2.micro"
   subnet_id                   = "${aws_subnet.tf_test_subnet.id}"
