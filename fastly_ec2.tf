@@ -91,7 +91,6 @@ resource "aws_instance" "tf_test" {
   key_name                    = "${aws_key_pair.ssh_thing.key_name}"
   associate_public_ip_address = true
 
-  #iam_instance_profile = "${aws_iam_instance_profile.test_profile.name}"
   iam_instance_profile = "${element(aws_iam_instance_profile.test_profile.*.name, count.index)}"
 
   depends_on = ["aws_internet_gateway.gw"]
