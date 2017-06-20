@@ -15,7 +15,7 @@ Basics:
 
 Output:
 
-```
+```console
 [s3_iam_example](4)$ terraform apply .
 aws_iam_role.role.2: Creating...
 [...]
