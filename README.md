@@ -12,6 +12,8 @@ Basics:
 - 1 sub folder per instance
 - AWS CLI installed on the AMI used, but you can bring your own AMI as long as you can ssh. Used just to confirm S3 permissions
 - Bring your own SSH key pair
+- Included a packer template for building an AMI of your own with `awscli`
+  preinstalled
 
 Output:
 
