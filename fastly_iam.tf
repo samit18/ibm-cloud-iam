@@ -15,15 +15,17 @@ resource "aws_iam_role" "role" {
 
   assume_role_policy = <<EOF
 {
-    "Version": "2008-10-17",
-    "Statement": [
-        {
-            "Action": "sts:AssumeRole",
-            "Principal": {"AWS": "*"},
-            "Effect": "Allow",
-            "Sid": ""
-        }
-    ]
+  "Version": "2008-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Effect": "Allow",
+      "Sid": ""
+    }
+  ]
 }
 EOF
 }
