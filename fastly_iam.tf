@@ -1,16 +1,16 @@
 # IAM things
 # Could refactor to use a group if we know the aws user names, but 
-# here I simply use a Role and Pnstance Profile for each instance
+# here I simply use a Role and Instance Profile for each instance
+
 resource "aws_iam_instance_profile" "test_profile" {
-  count = "${var.server_count}"
+  count = var.server_count
   name  = "test_profile_${count.index}"
-  role  = "${element(aws_iam_role.role.*.name, count.index)}"
+  role  = aws_iam_role.role[count.index].name
 }
 
 resource "aws_iam_role" "role" {
-  count = "${var.server_count}"
+  count = var.server_count
   name  = "test_role_${count.index}"
-  count = "${var.server_count}"
   path  = "/"
 
   assume_role_policy = <<EOF
@@ -31,8 +31,8 @@ EOF
 }
 
 resource "aws_iam_role_policy" "replication" {
-  count = "${var.server_count}"
-  role  = "${element(aws_iam_role.role.*.id, count.index)}"
+  count = var.server_count
+  role  = aws_iam_role.role[count.index].id
   name  = "715489234-replication-policy"
 
   policy = <<POLICY

@@ -6,7 +6,7 @@ resource "aws_vpc" "default" {
   cidr_block           = "10.0.0.0/16"
   enable_dns_hostnames = true
 
-  tags {
+  tags = {
     Name = "s3-iam-demo"
   }
 }
@@ -16,7 +16,7 @@ resource "aws_subnet" "tf_test_subnet" {
   cidr_block              = "10.0.0.0/24"
   map_public_ip_on_launch = true
 
-  tags {
+  tags = {
     Name = "s3-iam-demo"
   }
 }
@@ -24,7 +24,7 @@ resource "aws_subnet" "tf_test_subnet" {
 resource "aws_internet_gateway" "gw" {
   vpc_id = "${aws_vpc.default.id}"
 
-  tags {
+  tags = {
     Name = "s3-iam-demo"
   }
 }
@@ -37,7 +37,7 @@ resource "aws_route_table" "r" {
     gateway_id = "${aws_internet_gateway.gw.id}"
   }
 
-  tags {
+  tags = {
     Name = "s3-iam-demo"
   }
 }
@@ -67,22 +67,20 @@ resource "aws_security_group" "s3_iam_demo" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags {
+  tags = {
     Name = "s3-iam-demo"
   }
 }
 
-# This key pair is particular to Clint's machine
+# This key pair is particular to your machine
 resource "aws_key_pair" "ssh_thing" {
   key_name   = "tf-testing-c"
-  public_key = "${file("~/.ssh/id_rsa.pub")}"
+  public_key = file("C:/Users/roohi/.ssh/id_rsa.pub") # <-- Make sure this path exists
 }
 
 resource "aws_instance" "tf_test" {
   count = "${var.server_count}"
 
-  # An AMI based on ami-7ac6491a that has AWS CLI pre-installed for my debugging.
-  # can just use ami-7ac6491a and install yourself
   ami = "ami-b81401c1"
 
   instance_type               = "t2.micro"
@@ -93,9 +91,9 @@ resource "aws_instance" "tf_test" {
 
   iam_instance_profile = "${element(aws_iam_instance_profile.test_profile.*.name, count.index)}"
 
-  depends_on = ["aws_internet_gateway.gw"]
+  depends_on = [aws_internet_gateway.gw]
 
-  tags {
+  tags = {
     Name = "s3-iam-demo"
   }
 }
