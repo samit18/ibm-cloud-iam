@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AWS S3 and IAM example
 
 This repository provides example
@@ -65,3 +66,14 @@ ubuntu@ip-10-0-0-216:~$ aws s3api put-object --bucket s3-iam --key user1/hello.m
 
 An error occurred (AccessDenied) when calling the PutObject operation: Access Denied
 ```
+=======
+# IBM Cloud IAM Demo
+
+This project demonstrates how to access AWS S3 using IAM roles with STS token-based authentication.  
+**Implemented by Samit Srivastava**
+
+## Developer  
+- **Name**: Samit Srivastava  
+- **College**: Ajay Kumar Garg Engineering College  
+- **GitHub**: [@samit18](https://github.com/samit18)
+>>>>>>> e614fef4cb92b82efb11f394541aba9ae99dfd3d
