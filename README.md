@@ -77,3 +77,8 @@ This project demonstrates how to access AWS S3 using IAM roles with STS token-ba
 - **College**: Ajay Kumar Garg Engineering College  
 - **GitHub**: [@samit18](https://github.com/samit18)
 >>>>>>> e614fef4cb92b82efb11f394541aba9ae99dfd3d
+
+## 🧑‍💻 Author
+
+**Samit Srivastava**  
+[GitHub](https://github.com/samit18)
